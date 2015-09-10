@@ -1,2 +1,3 @@
 # CSS-photo-manipulator
-Manipulate a photo with only CSS.
+
+Manipulate a photo with CSS.
