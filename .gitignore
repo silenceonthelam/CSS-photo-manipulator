@@ -1,5 +1,8 @@
 node_modules
 npm-debug.log
 .DS_Store
+build
+dist
 .cache
+bundle.js
 *.hot-update.*
