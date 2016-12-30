@@ -1,52 +1,38 @@
-"use strict";
-
-var path    = require("path"),
-    webpack = require("webpack");
-
-// var autoprefixer = require("autoprefixer-core"),
-    var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var webpack = require("webpack"),
+    path = require("path");
 
 module.exports = {
-    entry: "./entry.js",
-    keepalive: true,
+    devtool: "cheap-module-eval-source-map",
+    entry: [
+        "webpack-hot-middleware/client",
+        "./scripts/index"
+    ],
     module: {
-        loaders: [{        
-            test: /\.jpe?g$|\.png$$/,
-            loader: 'file-loader?name=[path][name].[ext]'
-        // }, {
-            // test: /.*\.(gif|png|jpe?g|svg)$/i,
-            // loaders: [
-            //   'file?hash=sha512&digest=hex&name=[hash].[ext]',
-            //   '../index.js?{progressive:true, optimizationLevel: 7, interlaced: false, pngquant:{quality: "65-90", speed: 4}}'
-            // ]
+        loaders: [{
+            test: /\.js$/,
+            loader: "babel",
+            exclude: /node_modules/,
+            include: __dirname
+        }, { 
+            test: /\.scss$/,
+            include: path.join(__dirname, "styles"),
+            loader: "style!css!sass"
         }, {
-            test: /\.(js|jsx)$/,
-            loader: "babel-loader",
-            exclude: /node_modules/
-        }, {
-            test: /\.css$/,
-            loader: ExtractTextPlugin.extract(
-                "style",
-                "css"
-            )
+            test: /\.(jpg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+            include: path.join(__dirname, "img"),
+            loader: "file-loader"
         }]
-    },
+    },  
     output: {
-        path: path.join(__dirname, "build"),
-        filename: "build.js"
+        path: path.join(__dirname, "dist"),
+        filename: "bundle.js",
+        publicPath: "/static/"
     },
     plugins: [
-        new webpack.optimize.DedupePlugin(),
-        new ExtractTextPlugin("styles.css")
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NoErrorsPlugin()
     ],
     resolve: {
-        extensions: ["", ".js", ".jsx", ".css"],
-        modulesDirectories: ["node_modules"],
-    },
-    stats: {
-        colors: true,
-        reasons: true
-    },
-    target: "web",
-    watch: true
+        extensions: ["",".js",".scss"]
+    }
 };

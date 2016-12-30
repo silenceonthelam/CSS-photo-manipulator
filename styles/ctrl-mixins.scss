@@ -1,0 +1,85 @@
+@mixin cb {
+    align-self: center;
+    -webkit-appearance: none;
+    -webkit-backface-visibility: hidden;
+    background-color: hsla(160, 25%, 80%, .5);
+    border: none;
+    border-radius: 50%;
+    box-shadow:  0 1px 1px 1px hsla(160, 35%, 95%, .1),
+                inset 0 1px 1px 1px hsla(160, 35%, 50%, .08),
+                inset 0 0 3px 3px hsla(160, 25%, 50%, .05);
+    cursor: pointer;
+    flex: 0 0 27px;
+    height: 27px;
+    margin: 0;
+    padding: 0;
+    transition: .3s;
+    width: 27px;
+
+    &:checked {
+        -webkit-backface-visibility: hidden;
+        background-color: hsla(160, 50%, 70%, 1);
+        background-image: radial-gradient(
+                            circle 18px at 50% 50%,
+                            hsla(0, 8%, 95%, 1) 50%,
+                            hsla(0, 8%, 95%, 0) 50%
+                        ), radial-gradient(
+                            circle 18px at 50% 14px,
+                            hsla(160, 25%, 80%, .5) 50%,
+                            hsla(160, 25%, 80%, 0) 50%
+                        ), radial-gradient(
+                            circle 18px at 50% 15px,
+                            hsla(160, 35%, 65%, .5) 50%,
+                            hsla(160, 35%, 65%, 0) 55%
+                        ), radial-gradient(
+                            circle 20px at 50% 50%,
+                            hsla(160, 75%, 55%, .5) 35%,
+                            hsla(160, 75%, 75%, .95) 55%,
+                            hsla(160, 75%, 35%, 0)
+                        );        
+        box-shadow:  0 1px 1px 1px hsla(160, 35%, 95%, .25),
+                    inset 0 1px 1px 1px hsla(160, 35%, 50%, .2),
+                    inset 0 0 3px 3px hsla(160, 25%, 50%, .1);
+        transition: .2s;
+    }
+}
+    
+@mixin label-text {
+    color: hsla(205, 65%, 60%, 1);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+@mixin slider {
+    -webkit-appearance: none;
+    -webkit-backface-visibility: visible;
+    background: transparent;
+    cursor: pointer;
+    line-height: 60px;
+
+    &::-webkit-slider-runnable-track {
+        -webkit-appearance: none;
+        -webkit-backface-visibility: hidden;
+        background-color: hsla(160, 65%, 70%, 1);
+        border-radius: 2px;    
+        box-shadow: 0 -1px 1px 0 hsla(160, 70%, 45%, .5);            
+        height: 3px;
+        position: relative;
+    }
+
+    &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        -webkit-backface-visibility: hidden;
+        background-color: hsla(0, 8%, 95%, 1);
+        border: none;
+        border-radius: 50%;
+        box-shadow: 0 0 1px 0 hsla(160, 10%, 80%, 1),
+                    0 2px 0 0 hsla(160, 10%, 80%, .75);
+        height: 24px;
+        position: relative;
+        top: -11px;
+        width: 24px;
+    }
+}

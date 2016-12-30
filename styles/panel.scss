@@ -1,0 +1,101 @@
+.panel,
+.panel--collapsed {
+    background-color: hsla(160, 5%, 98%, .75);
+    border-radius: 6px / 3px;
+    box-shadow: 0 1px 3px 0 hsla(205, 35%, 35%, .25),
+                0 15px 12px -6px hsla(205, 15%, 25%, .15);
+    flex-basis: 33%;
+    justify-content: space-between;
+    margin: 0 1vw;
+    min-height: 56px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    position: relative; 
+    transition: .2s cubic-bezier(0.680, -0.550, 0.265, 1.550);
+    z-index: 1;
+
+    @media (max-width: 959px) {
+        border-radius: 0;
+        flex-basis: 100%;
+        margin: 0;
+    }
+}
+
+.panel__head {
+    background-color: hsla(160, 15%, 95%, 1);
+    box-shadow: 0 1px 3px 0 hsla(160, 10%, 15%, .15),
+                0 6px 3px -3px hsla(160, 10%, 65%, .18),
+                0 18px 12px -12px hsla(160, 40%, 75%, .12);  
+    color: hsla(205, 65%, 60%, 1);
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 18px;
+    padding: 18px 24px;
+    position: relative;
+    transition: .3s; 
+
+    @media (min-width: 960px) {
+        cursor: default;
+    }
+
+    &:hover {
+        background-image: radial-gradient(
+                            circle 60px at 50% 65%,
+                            hsla(160, 30%, 99.5%, 1) 50%,
+                            hsla(160, 15%, 92.5%, 1) 250%
+                        );
+        box-shadow: 0 1px 3px 0 hsla(160, 10%, 15%, .25),
+                    0 6px 3px -3px hsla(160, 10%, 65%, .28),
+                    0 18px 12px -12px hsla(160, 40%, 75%, .5);
+        text-shadow: 0 1px 0 hsla(160, 30%, 99%, .5);
+        transition: .2s;  
+    }
+}
+
+.panel__head__toggle {
+    color: hsla(160, 10%, 65%, 1);
+    cursor: pointer;
+    float: right;
+    font-size: 24px;
+    left: 12px;
+    padding: 0 12px;
+    position: relative;
+    top: -6px;
+    transition: .25s;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+
+    @media (min-width: 960px) {
+        display: none;
+    }
+}
+
+.panel__head:hover .panel__head__toggle {
+    color: hsla(160, 50%, 70%, 1);
+}
+
+.panel__body {
+    padding-bottom: 1vh;
+}
+
+.panel--collapsed {
+    @media (max-width: 959px) {
+        flex: 0 0 56px;
+        transition: .35s cubic-bezier(0.680, -1.550, 0.265, 1.550);
+
+        .panel__head {
+            margin-bottom: 0;
+
+            &:hover {
+                background-color: hsla(160, 30%, 98%, 1);
+                background-image: none;
+            }
+        }
+
+        .panel__body {
+            display: none;
+        }
+    }    
+}

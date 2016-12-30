@@ -1,0 +1,89 @@
+@import "ctrls";
+@import "panel";
+@import "slider";
+
+* {
+    box-sizing: border-box;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+*:active,
+*:focus {
+    outline:none;
+}
+
+html {
+    height: 100vh;
+    overflow: hidden;
+    width: 100vw;
+}
+
+body {
+    background-color: hsla(205, 100%, 65%, 1);
+    font-family: "PT Sans", sans-serif;
+    height: 100vh;
+    overflow: visible;
+    width: 100vw;
+}
+
+.app__panels {
+    display: flex;
+    flex-direction: column;
+    height: 50vh;
+    position: relative;
+    width: 100vw;
+    z-index: 1;
+}
+
+.app__stage {
+    background-clip: content-box;
+    background-color: hsla(160, 65%, 85%, 1);
+    background-image: radial-gradient(
+                        90% 90%,
+                        hsla(160, 10%, 15%, 0) 66%,
+                        hsla(160, 10%, 15%, .5)
+                    ), linear-gradient(
+                        hsla(160, 10%, 15%, 0) 66%,
+                        hsla(160, 10%, 15%, .5)
+                    );
+    box-shadow: inset 0 0 1px 0 hsla(160, 10%, 15%, 1),
+                inset 1px 1px 3px 0 hsla(160, 15%, 35%, 1),
+                inset -1px 1px 3px 0 hsla(160, 15%, 35%, 1),
+                0 1px 6px 0 hsla(160, 20%, 25%, .35),
+                0 6px 12px -3px hsla(160, 20%, 25%, .35);
+    height: 100vh;
+    margin-bottom: -50vh;
+    position: relative;
+    z-index: 1;
+}
+
+.app__stage__img {
+    background-image: url("../img/1.jpg");
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    border-bottom: 50vh solid hsla(160, 65%, 65%, .75);
+    bottom: 0;
+    left: 0;
+    max-width: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+@media (min-width: 960px) {
+    .app__panels {
+        flex-direction: row;
+        justify-content: space-around;
+        margin-top: -55vh;
+    }
+}
+
+@media (max-aspect-ratio: 2/3) {
+    .app__stage__img {
+        background-size: auto 100%;
+    }    
+}

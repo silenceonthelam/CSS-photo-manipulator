@@ -1,11 +1,11 @@
 {
   "name": "CSS-photo-manipulator",
   "version": "0.1.0",
-  "description": "Manipulate a photo with CSS.",
-  "main": "webpack.config.js",
+  "description": "Manipulate a photo with CSS using blend-modes, filters, and transforms.",
+  "main": "server.js",
   "scripts": {
-    "start": "webpack",
-    "test": "karma-start"
+    "build": "NODE_ENV=production node_modules/.bin/webpack --progress -p --config ./webpack.dist.config.js",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -17,23 +17,29 @@
     "url": "https://github.com/silenceonthelam/CSS-photo-manipulator/issues"
   },
   "homepage": "https://github.com/silenceonthelam/CSS-photo-manipulator",
-  "devDependencies": {
-    "autoprefixer-core": "^5.2.1",
-    "autoprefixer-loader": "^2.0.0",
-    "babel-core": "^5.6.18",
-    "babel-loader": "^5.3.1",
-    "css-loader": "^0.15.2",
-    "extract-text-webpack-plugin": "^0.8.2",
-    "file-loader": "^0.8.4",
-    "node-libs-browser": "^0.5.2",
-    "style-loader": "^0.12.3",
-    "webpack": "^1.10.1",
-    "imagemin": "^3.2.0",
-    "image-webpack-loader": "^1.6.1"
-  },
   "dependencies": {
-    "lodash": "^3.10.0",
-    "object-assign": "^3.0.0",
-    "react": "^0.13.3"
+    "lodash.partition": "^4.6.0",
+    "react": "^15.4.0",
+    "react-dom": "^15.4.0",
+    "react-redux": "^4.4.6",
+    "redux": "^3.6.0"
+  },  
+  "devDependencies": {
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.8",
+    "babel-preset-latest": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-react-hmre": "^1.1.1",
+    "babel-preset-stage-0": "^6.16.0",
+    "css-loader": "^0.26.0",
+    "express": "^4.14.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
+    "node-sass": "^3.13.0",
+    "sass-loader": "^4.0.2",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.3",
+    "webpack-dev-middleware": "^1.8.4",
+    "webpack-hot-middleware": "^2.13.2"
   }
 }

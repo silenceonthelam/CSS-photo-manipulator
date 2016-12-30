@@ -1,0 +1,1 @@
+export const axes = ["x", "y"];
